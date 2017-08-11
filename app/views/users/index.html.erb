@@ -27,15 +27,14 @@
 <!-- Import Vue Component -->
 <% @hello_message = {num: 1, str: '2', arr: [1, 2, 3], obj: {name: 'foo', age: 12}} %>
 
-<div data-vue-components-outlet="hello-turbolinks">
+<%= vue_component do %>
   <hello-turbolinks 
-    :obj="<%= @hello_message[:obj].to_json %>"
-    :num="<%= @hello_message[:num] %>"
-    :arr="<%= @hello_message[:arr] %>"
-    :str="<%= @hello_message[:str] %>"
+  :obj="<%= @hello_message[:obj].to_json %>"
+  :arr="<%= @hello_message[:arr] %>" 
+  :str="<%= @hello_message[:str] %>"
+  :num="<%= @hello_message[:num] %>"
   >
-  </hello-turbolinks>
-</div>
+<% end %>
 <!-- End of Import Vue Component -->
 
 <%= link_to 'New User', new_user_path %>
